@@ -1,6 +1,9 @@
 # Polaron
 
 Polaron is a parametric monospace type family generated entirely from Python.
+The font started as a prototype for how to use coding agents to generate large
+fonts with wide code-point coverage.
+
 It comes in **Sans** and **Serif** styles, each with true **italics**, and as
 **variable fonts** with two axes:
 
