@@ -1,0 +1,29 @@
+# Build outputs (regenerate with `uv run python build.py`)
+/build/
+/dist/
+/proofs/
+
+# Noto sources, downloaded on first build
+/sources/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# Secrets / local config
+.env
+.env.*
+.claude/settings.local.json
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

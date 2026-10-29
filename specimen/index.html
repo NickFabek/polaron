@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polaron Specimen</title>
+<style>
+  @font-face { font-family: "Polaron Sans"; src: url("../dist/PolaronSans[wdth,wght].ttf") format("truetype"); font-weight: 100 900; font-stretch: 80% 120%; font-style: normal; }
+  @font-face { font-family: "Polaron Sans"; src: url("../dist/PolaronSans-Italic[wdth,wght].ttf") format("truetype"); font-weight: 100 900; font-stretch: 80% 120%; font-style: italic; }
+  @font-face { font-family: "Polaron Serif"; src: url("../dist/PolaronSerif[wdth,wght].ttf") format("truetype"); font-weight: 100 900; font-stretch: 80% 120%; font-style: normal; }
+  @font-face { font-family: "Polaron Serif"; src: url("../dist/PolaronSerif-Italic[wdth,wght].ttf") format("truetype"); font-weight: 100 900; font-stretch: 80% 120%; font-style: italic; }
+  :root {
+    --bg: #fbfaf7; --fg: #1d1c1a; --muted: #77736b; --rule: #e4e0d8; --accent: #2f5bd3; --panel: #f2efe9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #141413; --fg: #ecebe7; --muted: #9a968d; --rule: #2c2b28; --accent: #8fa8ff; --panel: #1d1c1a; }
+  }
+  :root[data-theme="dark"] { --bg: #141413; --fg: #ecebe7; --muted: #9a968d; --rule: #2c2b28; --accent: #8fa8ff; --panel: #1d1c1a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 system-ui, sans-serif; }
+  header { padding: 28px 16px 12px; max-width: 1100px; margin: 0 auto; }
+  h1 { font-family: "Polaron Sans"; font-weight: 700; font-size: 56px; margin: 0; letter-spacing: 0; }
+  .sub { color: var(--muted); margin-top: 4px; }
+  .controls { position: sticky; top: 0; z-index: 2; background: var(--bg); border-bottom: 1px solid var(--rule); }
+  .controls .inner { max-width: 1100px; margin: 0 auto; padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; }
+  label { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: 13px; }
+  input[type=range] { width: 140px; accent-color: var(--accent); }
+  output { font-variant-numeric: tabular-nums; color: var(--fg); min-width: 2.5em; }
+  main { max-width: 1100px; margin: 0 auto; padding: 8px 16px 64px; }
+  section { margin: 28px 0; }
+  h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; margin: 0 0 8px; }
+  .sample { font-family: var(--family); font-weight: var(--wght); font-stretch: var(--wdth); font-style: var(--style);
+            font-size: var(--size); line-height: 1.35; white-space: pre-wrap; overflow-wrap: anywhere; font-feature-settings: var(--feat); }
+  .panel { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 14px 16px; overflow-x: auto; }
+  .box { line-height: 1.2; white-space: pre; overflow-x: auto; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; }
+  .inst { border: 1px solid var(--rule); border-radius: 6px; padding: 8px 10px; }
+  .inst span { display: block; color: var(--muted); font-size: 11px; }
+  .inst div { font-family: var(--family); font-style: var(--style); font-size: 30px; }
+  [contenteditable] { outline: none; }
+  button { font: inherit; font-size: 13px; padding: 4px 10px; border-radius: 6px; border: 1px solid var(--rule); background: var(--panel); color: var(--fg); cursor: pointer; }
+  button[aria-pressed=true] { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Polaron</h1>
+  <div class="sub">A parametric monospace family — Sans &amp; Serif, variable weight (100–900) and width (80–120), true italics.</div>
+</header>
+<div class="controls"><div class="inner">
+  <button id="fam" aria-pressed="false">Serif</button>
+  <button id="ital" aria-pressed="false">Italic</button>
+  <button id="liga" aria-pressed="true">Ligatures</button>
+  <label>Weight <input id="wght" type="range" min="100" max="900" value="400"><output id="wghtv">400</output></label>
+  <label>Width <input id="wdth" type="range" min="80" max="120" value="100"><output id="wdthv">100</output></label>
+  <label>Size <input id="size" type="range" min="10" max="72" value="20"><output id="sizev">20</output></label>
+  <button id="theme">Theme</button>
+</div></div>
+<main>
+<section><h2>Code</h2><div class="panel sample" contenteditable spellcheck="false">fn main() -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
+    let xs: Vec&lt;u32&gt; = (0..=0x1F).filter(|&amp;n| n % 3 != 0).collect();
+    if xs.len() &gt;= 10 &amp;&amp; xs[0] == 1 || !done { println!("{:?}", xs); }
+    // arrows: -&gt; =&gt; &lt;- &lt;=&gt; --&gt; &lt;-&gt; |&gt; &lt;| ::  ===  !==  &gt;&gt;= &lt;&lt; &gt;&gt;&gt;  ~&gt;  :=
+    Ok(())
+}
+0O 1lI| il1L g9q $5S 8B 2Z rn m :; ,. `' "" {} [] () &lt;&gt;</div></section>
+
+<section><h2>Latin · Greek · Cyrillic</h2><div class="sample" contenteditable>The quick brown fox jumps over the lazy dog. Sphinx of black quartz, judge my vow!
+Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich. Ça m’a coûté 5 € — façade, œuvre, Ærøskøbing.
+Příliš žluťoučký kůň úpěl ďábelské ódy. Tiếng Việt: Chữ Quốc ngữ được viết bằng ký tự Latinh.
+Ξεσκεπάζω τὴν ψυχοφθόρα βδελυγμία. Ἐν ἀρχῇ ἦν ὁ λόγος. Γαζίες καὶ μυρτιὲς δὲν θὰ βρῶ.
+Съешь же ещё этих мягких французских булок, да выпей чаю. Їжак ґедзь. Қазақ тілі — әліпби.</div></section>
+
+<section><h2>World scripts</h2><div class="sample" contenteditable dir="auto">العربية: الخط العربي جميل جداً — مرحبا بالعالم ١٢٣
+עברית: שָׁלוֹם עוֹלָם, אבגדהוזחטי
+हिन्दी: सभी मनुष्यों को गौरव और अधिकारों के मामले में जन्मजात स्वतन्त्रता प्राप्त है।
+বাংলা: আমি তোমায় ভালোবাসি · தமிழ்: யாமறிந்த மொழிகளிலே · తెలుగు: తెలుగు భాష · ಕನ್ನಡ · മലയാളം · ਪੰਜਾਬੀ · ગુજરાતી · ଓଡ଼ିଆ · සිංහල
+ไทย: ภาษาไทยเป็นภาษาราชการ · 中文：天地玄黄，宇宙洪荒。 日本語：いろはにほへと ちりぬるを · 한국어: 다람쥐 헌 쳇바퀴에 타고파</div></section>
+
+<section><h2>Mathematics</h2><div class="sample" contenteditable>∀ε&gt;0 ∃δ&gt;0: |x−a|&lt;δ ⇒ |f(x)−L|&lt;ε      ∑ᵢ₌₁ⁿ xᵢ² ≤ ∫₀^∞ e⁻ᵗ dt
+A ⊆ B ∪ C,  ¬(p ∧ q) ⟺ ¬p ∨ ¬q,  ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ,  ∇·E = ρ/ε₀
+⟨ψ|φ⟩ ⊗ |0⟩,  f: X → Y,  g ∘ f,  x⃗ · y⃗ = ‖x⃗‖‖y⃗‖cos θ,  a ≠ b ≈ c ≡ d,  ∂²u/∂t² = c²∇²u
+½ ⅓ ¼ ⅞ · α β γ δ ε ζ η θ λ μ π σ φ ψ ω · Γ Δ Θ Λ Ξ Π Σ Φ Ψ Ω</div></section>
+
+<section><h2>Combining marks</h2><div class="sample" contenteditable>a&#x301; e&#x308; x&#x20D7; v&#x20D7; F&#x20D7; q&#x323;&#x302; o&#x328;&#x304; n&#x303; A&#x30A; i&#x301;&#x302; u&#x31B;&#x309; c&#x327; z&#x30C; x&#x335; =&#x338; &lt;&#x338; a&#x20DD; 1&#x20E3;</div></section>
+
+<section><h2>Box drawing · blocks · braille</h2><div class="panel sample box">┌──────────┬─────────┐  ╔══════╗  ╭──────╮  ▁▂▃▄▅▆▇█
+│ Polaron  │ v0.1.0  │  ║ CPU  ║  │ ok ✓ │  ░░▒▒▓▓██
+├──────────┼─────────┤  ╠══════╣  ╰──────╯  ⣿⣷⣯⣟⡿⢿⣻⣽
+│ ━━━━╋━━━ │ ┄┄┆┆┈┉  │  ║ ▶ ◀  ║  🬀🬁🬂🬃🬄🬅  ◢◣◤◥
+└──────────┴─────────┘  ╚══════╝   ●○◆◇■□▲△</div></section>
+
+<section><h2>Weights &amp; widths</h2><div class="grid" id="insts"></div></section>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const root = document.documentElement;
+let serif = false, italic = false, liga = true;
+function apply() {
+  root.style.setProperty('--family', serif ? '"Polaron Serif"' : '"Polaron Sans"');
+  root.style.setProperty('--style', italic ? 'italic' : 'normal');
+  root.style.setProperty('--wght', $('wght').value);
+  root.style.setProperty('--wdth', $('wdth').value + '%');
+  root.style.setProperty('--size', $('size').value + 'px');
+  root.style.setProperty('--feat', liga ? 'normal' : '"calt" 0, "liga" 0');
+  $('wghtv').textContent = $('wght').value; $('wdthv').textContent = $('wdth').value; $('sizev').textContent = $('size').value;
+  $('fam').setAttribute('aria-pressed', serif); $('ital').setAttribute('aria-pressed', italic); $('liga').setAttribute('aria-pressed', liga);
+}
+['wght','wdth','size'].forEach(id => $(id).addEventListener('input', apply));
+$('fam').onclick = () => { serif = !serif; apply(); };
+$('ital').onclick = () => { italic = !italic; apply(); };
+$('liga').onclick = () => { liga = !liga; apply(); };
+$('theme').onclick = () => { root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark'; };
+const grid = $('insts');
+for (const d of [80, 100, 120]) for (const w of [100, 300, 400, 700, 900]) {
+  const el = document.createElement('div'); el.className = 'inst';
+  el.innerHTML = `<span>wght ${w} · wdth ${d}</span><div style="font-weight:${w};font-stretch:${d}%">Rag -&gt; 0x</div>`;
+  grid.appendChild(el);
+}
+apply();
+</script>
+</body>
+</html>
