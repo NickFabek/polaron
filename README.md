@@ -14,28 +14,6 @@ advances 0 (combining marks), 1 cell, or 2 cells (East-Asian wide/fullwidth
 characters such as CJK and Hangul), so the grid is never broken — including by
 ligatures.
 
-## Design
-
-Polaron borrows from:
-
-* **Iosevka** – everything is drawn by code from skeletons; superelliptic
-  ("squircle") curves; arches that thin where they meet stems.
-* **JetBrains Mono** – tall x-height (536/1000), straight-sided ovals, simple
-  unambiguous shapes (`0` with a dot, `l` with a tail, `i` with a slab,
-  distinct `1lI|`, `O0`, `B8`, `S5`, `Z2`).
-* **Libertinus** – the Serif style: humanist stress from a slightly rotated
-  elliptical pen, tapered bracketed serifs, ball terminals on `a c f j r y`,
-  a double-story `g`, cursive italics with tails and descending `f`.
-* **Peano** – I could not find a published font of that name, so I took the
-  name as the brief: math is a first-class citizen. Operators share a single
-  axis and weight, there is a large operator/arrow/letterlike repertoire, and
-  combining marks such as the vector arrow (x⃗) stack correctly.
-
-Stroke contrast comes from an elliptical pen: vertical stems get width `S`,
-horizontal strokes thickness `H` (sans `H ≈ 0.88 S`, serif `H ≈ 0.56 S`).
-Superelliptic quarter arcs are offset analytically (each side is another
-superelliptic arc), so tight counters never cusp at heavy weights.
-
 ## Coverage
 
 * Latin: Basic, Latin-1, Extended-A, most of Extended-B, Latin Extended
